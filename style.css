@@ -1,6 +1,6 @@
 body {
   position: relative;
-  min-height: 100vh; /* 画面全体の高さを確保 */
+  min-height: 100vh;
   margin: 0;
 }
 
@@ -13,7 +13,7 @@ body::before {
   height: 100%;
   background-color: #00000033;
   background-image: url("Images/15ch.jpg");
-  background-size: cover; /* 背景画像を全体にフィットさせる場合 */
+  background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
   opacity: 0.5;
