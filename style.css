@@ -1,3 +1,8 @@
+body{
+  backgrond-color: #00000033;
+  background-image:url("Images/15ch.jpg");
+  background-blend-mode: multiply;
+}
 h1{
   color:#1e1e1e;
   font-size:3.0rem;
