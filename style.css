@@ -1,9 +1,20 @@
 h1{
-  color:brack;
+  color:#1e1e1e;
+  font-size:2.5rem;
 }
 h2{
-  color:gray;
+  color:#3d3d3d;
+  font-size:2rem;
+  
 }
+p{
+  color:#494949;
+  font-size:1.5rem;
+}
+ul{
+  font-size:1.5rem;
+}
+
 img{
   height:40%;
   width:40%;
