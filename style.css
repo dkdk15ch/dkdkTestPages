@@ -85,11 +85,13 @@ img {
     transition: transform 0.3s ease;
     z-index: 1000;
     overflow-y: auto;
+    /* デフォルト（初期状態）は左側に隠しておく */
+    transform: translateX(-100%);
 }
 
-/* 閉じた状態 */
-.sidebar.collapsed {
-    transform: translateX(-100%);
+/* クラスがついた時（開いた時）に画面内に出す */
+.sidebar.open {
+    transform: translateX(0);
 }
 
 .sidebar-header {
@@ -104,7 +106,7 @@ img {
     font-size: 1.2rem;
 }
 
-/* ★ 共通のトグルボタン（常に画面左上に固定） */
+/* 常に画面左上に固定されたトグルボタン */
 .toggle-btn {
     position: fixed;
     top: 15px;
@@ -120,12 +122,13 @@ img {
 
 /* メインコンテンツの位置調整 */
 #main-content {
-    margin-left: 260px;
+    /* デフォルト（非展開時）は左側の余白を狭くしておく */
+    margin-left: 20px;
     padding: 20px;
     transition: margin-left 0.3s ease;
 }
 
-/* サイドバーが閉じた時はメインコンテンツを広げる */
-body.sidebar-closed #main-content {
-    margin-left: 20px;
+/* サイドバーが開いた時（openクラスがついた時）にメインコンテンツを右に押す */
+body.sidebar-open #main-content {
+    margin-left: 260px;
 }
