@@ -72,6 +72,7 @@ img {
 
 /* --- ここから下がサイドバー用の追加分 --- */
 
+/* サイドバーの基本スタイル */
 .sidebar {
   position: fixed;
   top: 0;
@@ -87,7 +88,7 @@ img {
   overflow-y: auto;
 }
 
-/* 閉じた状態（左側に隠す） */
+/* 閉じた状態（左側に隠す） ※ここをスペースなしに修正 */
 .sidebar.collapsed {
   transform: translateX(-100%);
 }
@@ -113,12 +114,12 @@ img {
   padding: 5px 10px;
 }
 
-/* ★ 常に画面左上に固定して、絶対にクリックできるように最前面（2000）にする */
+/* 常に画面左上に固定して、絶対にクリックできるように最前面（2000）にする */
 .open-btn {
   position: fixed;
   top: 15px;
   left: 15px;
-  z-index: 2000; 
+  z-index: 2000;
   background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 4px;
