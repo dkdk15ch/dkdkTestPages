@@ -62,7 +62,7 @@ img {
 .video-container {
     position: relative;
     width: 100%;
-    max-width: 560px;
+    max-width: 720px;
     aspect-ratio: 16 / 9;
     margin-top: 10px;
 }
@@ -136,5 +136,5 @@ img {
 
 /* サイドバーが開いた時（openクラスがついた時）にメインコンテンツを右に押す */
 body.sidebar-open #main-content {
-    margin-left: 20rem;
+    margin-left: calc(30vw + 20px);
 }
