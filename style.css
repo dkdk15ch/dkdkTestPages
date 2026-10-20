@@ -70,9 +70,8 @@ img {
     border: none;
 }
 
-/* --- ここから下がサイドバー用の追加分 --- */
+/* --- サイドバー関連のスタイル --- */
 
-/* サイドバーの基本スタイル */
 .sidebar {
     position: fixed;
     top: 0;
@@ -88,7 +87,7 @@ img {
     overflow-y: auto;
 }
 
-/* 閉じた状態（スペースなしにする） */
+/* 閉じた状態 */
 .sidebar.collapsed {
     transform: translateX(-100%);
 }
@@ -105,18 +104,8 @@ img {
     font-size: 1.2rem;
 }
 
-/* 閉じるボタンのスタイル */
+/* ★ 共通のトグルボタン（常に画面左上に固定） */
 .toggle-btn {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 5px 10px;
-}
-
-/* 常に画面左上に固定して、絶対にクリックできるように最前面（2000）にする */
-.open-btn {
-    display: none;
     position: fixed;
     top: 15px;
     left: 15px;
@@ -129,11 +118,6 @@ img {
     padding: 5px 10px;
 }
 
-/* サイドバーが閉じた時だけ表示する（スペースなしにする） */
-body.sidebar-closed .open-btn {
-    display: block;
-}
-
 /* メインコンテンツの位置調整 */
 #main-content {
     margin-left: 260px;
@@ -141,7 +125,7 @@ body.sidebar-closed .open-btn {
     transition: margin-left 0.3s ease;
 }
 
-/* サイドバーが閉じた時はメインコンテンツを広げる（スペースなしにする） */
+/* サイドバーが閉じた時はメインコンテンツを広げる */
 body.sidebar-closed #main-content {
     margin-left: 20px;
 }
