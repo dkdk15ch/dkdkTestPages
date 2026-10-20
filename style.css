@@ -72,14 +72,13 @@ img {
 
 /* --- ここから下がサイドバー用の追加分 --- */
 
-/* サイドバーの基本スタイル */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 250px;
   height: 100vh;
-  background-color: rgba(248, 249, 250, 0.95); /* 背景が透けないように少し不透明に */
+  background-color: rgba(248, 249, 250, 0.95);
   border-right: 1px solid #ddd;
   padding: 20px;
   box-sizing: border-box;
@@ -105,8 +104,8 @@ img {
   font-size: 1.2rem;
 }
 
-/* ボタンのスタイル */
-.toggle-btn, .open-btn {
+/* 閉じるボタンのスタイル */
+.toggle-btn {
   background: none;
   border: none;
   font-size: 1.2rem;
@@ -114,15 +113,18 @@ img {
   padding: 5px 10px;
 }
 
-/* サイドバー外の「開くボタン」（画面左上に固定） */
+/* ★ 常に画面左上に固定して、絶対にクリックできるように最前面（2000）にする */
 .open-btn {
   position: fixed;
   top: 15px;
   left: 15px;
-  z-index: 999;
+  z-index: 2000; 
   background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px 10px;
 }
 
 /* メインコンテンツの位置調整 */
