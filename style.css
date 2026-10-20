@@ -1,63 +1,138 @@
 body {
-  position: relative;
-  min-height: 100vh;
-  margin: 0;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
 }
 
 body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #00000015;
-  background-image: url("Images/15ch.jpg");
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: multiply;
-  opacity: 0.5;
-  z-index: -1;
-}
-h1{
-  color:#1e1e1e;
-  font-size:3.0rem;
-}
-h2{
-  color:#3d3d3d;
-  font-size:2rem;
-}
-h3{
-  color:#151515;
-  font-size:20px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000015;
+    background-image: url("Images/15ch.jpg");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    opacity: 0.5;
+    z-index: -1;
 }
 
-p{
-  color:#494949;
-  font-size:1.5rem;
+h1 {
+    color: #1e1e1e;
+    font-size: 3.0rem;
 }
-ul{
-  font-size:2.0rem;
+
+h2 {
+    color: #3d3d3d;
+    font-size: 2rem;
 }
-li{
-  font-size:2.0rem;
+
+h3 {
+    color: #151515;
+    font-size: 20px;
 }
-img{
-  height:40%;
-  width:40%;
+
+p {
+    color: #494949;
+    font-size: 1.5rem;
 }
+
+ul {
+    font-size: 2.0rem;
+}
+
+li {
+    font-size: 2.0rem;
+}
+
+img {
+    height: 40%;
+    width: 40%;
+}
+
 .video-container {
-  position: relative;
-  width: 100%;
-  max-width: 560px;
-  aspect-ratio: 16 / 9;
-  margin-top: 10px;
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16 / 9;
+    margin-top: 10px;
 }
+
 .video-container iframe {
-  position: absolute;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* --- ここから下がサイドバー用の追加分 --- */
+
+/* サイドバーの基本スタイル */
+.sidebar {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  border: none; 
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(248, 249, 250, 0.95); /* 背景が透けないように少し不透明に */
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+/* 閉じた状態（左側に隠す） */
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* ボタンのスタイル */
+.toggle-btn, .open-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+/* サイドバー外の「開くボタン」（画面左上に固定） */
+.open-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 999;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* メインコンテンツの位置調整 */
+#main-content {
+  margin-left: 260px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+/* サイドバーが閉じた時はメインコンテンツを広げる */
+body.sidebar-closed #main-content {
+  margin-left: 20px;
 }
