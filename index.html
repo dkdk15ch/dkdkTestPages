@@ -7,12 +7,13 @@
 </head>
 <body>
 
+    <!-- 常に画面左上に表示する開閉ボタン -->
+    <button id="toggle-btn" class="toggle-btn" aria-label="目次を開閉" aria-expanded="false">☰</button>
+
     <!-- サイドバー（目次） -->
     <nav id="sidebar" class="sidebar">
       <div class="sidebar-header">
         <h2>目次</h2>
-        <!-- 閉じる用のボタン（内部用としてそのまま配置） -->
-        <button id="toggle-btn" class="toggle-btn" aria-label="目次を開閉">☰</button>
       </div>
       <p>※リンクとして使用できます。</p>
       <ul>
@@ -39,13 +40,22 @@
 
         <br>
         <h2 id="スキル">スキル</h2>
-        <ul>
-            <li>C言語 &emsp; 1年</li>
-            <li>C#言語 &emsp; 2か月</li>
-            <li>C++言語 &emsp; 1年10か月</li>
-            <li>UnrealEngine &emsp; 1年</li>
-            <li>Unity &emsp; 2か月</li>
-            <li>DirectX12 &emsp; 1年</li>
+        <!-- 
+        ・C言語           1年
+        ・C#言語          2か月    
+        ・C++言語         1年10か月
+        ・UnrealEngine    1年
+        ・Unity           2か月
+        ・DirectX12       1年
+        -->
+
+        <ul class="skill-list">
+          <li><span class="skill-name">C言語</span>1年</li>
+          <li><span class="skill-name">C#言語</span>2か月</li>
+          <li><span class="skill-name">C++言語</span>1年10か月</li>
+          <li><span class="skill-name">UnrealEngine</span>1年</li>
+          <li><span class="skill-name">Unity</span>2か月</li>
+          <li><span class="skill-name">DirectX12</span>1年</li>
         </ul>
 
         <br>
@@ -57,6 +67,33 @@
 
         <br>
         <h3 id="ソースコード">GitHubはこちら↓</h3>
+
+         <h3 id="ダウンロード">実行ファイルのダウンロードはこちら↓</h4>
+        <p>※直接ダウンロードできます。</p>
+        <a href="https://github.com/dkdk15ch/TestRelase/releases/download/v0.0.1/SQUASH_BREAKER_1016.zip" download onclick="return confirm('ゲームデータをダウンロードしますか？（ファイルサイズ: 約116MB）');">
+        ダウンロード
+        </a>     
+        <br>
+
+        <h3 id="プログラミング歴">プログラミング学習歴</h3>
+        <!-- 新しい順に書く。メインは書いてるので、割愛 -->
+        <p>hogehoge</p>
+        <br>
+        
+        <h2 id="最近のブーム">最近のブーム</h2>
+        <p>最近ハマっていることは、睡眠です。</p>
+        <p>柳沢正志さんの本を、図書館で予約とリクエストしました。</p>    
+        <p>予約した方は、順番待ちが多くて読むのは先になりそうです。</p>
+        <br>
+
+        <h2 id="好きな物">好きな物</h2>
+        <p>自宅では、兎を飼っていいます。</p>
+        <p>昔飼っていた兎よりも、よく懐いてくれます。</p>
+        <img src="Images/15ch.jpg" alt="うさぎ">
+
+        <h2 id="ストレス発散">ストレス発散</h2>
+        <p>早寝早起きして、朝の散歩。日の出まえ30分前から、30分ぐらい</p>
+        <p>遠くを見ながら歩くと眼精疲労も解消できるのでお勧めです。</p>
     </div>
 
     <!-- JavaScript：1つのボタンで開閉をトグル切り替え -->
@@ -65,8 +102,9 @@
       const toggleBtn = document.getElementById('toggle-btn');
 
       toggleBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-        document.body.classList.toggle('sidebar-open');
+        const isOpen = sidebar.classList.toggle('open');
+        document.body.classList.toggle('sidebar-open', isOpen);
+        toggleBtn.setAttribute('aria-expanded', String(isOpen));
       });
     </script>
 

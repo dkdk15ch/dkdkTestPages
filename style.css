@@ -48,6 +48,12 @@ li {
     font-size: 2.0rem;
 }
 
+.skill-list li {
+    display: grid;
+    grid-template-columns: 14rem auto;
+    column-gap: 1rem;
+}
+
 img {
     height: 40%;
     width: 40%;
@@ -76,9 +82,9 @@ img {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px;
-    height: 100vh;
-    background-color: rgba(248, 249, 250, 0.95);
+    width: 30vw;
+    height: 50vh;
+    background-color: rgb(151, 151, 151);
     border-right: 1px solid #ddd;
     padding: 20px;
     box-sizing: border-box;
@@ -109,10 +115,10 @@ img {
 /* 常に画面左上に固定されたトグルボタン */
 .toggle-btn {
     position: fixed;
-    top: 15px;
-    left: 15px;
+    top: 1rem;
+    left: 1rem;
     z-index: 2000;
-    background-color: #ffffff;
+    background-color: #bdbcbc;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1.2rem;
@@ -130,5 +136,5 @@ img {
 
 /* サイドバーが開いた時（openクラスがついた時）にメインコンテンツを右に押す */
 body.sidebar-open #main-content {
-    margin-left: 260px;
+    margin-left: 20rem;
 }
