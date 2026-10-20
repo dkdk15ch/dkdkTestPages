@@ -116,6 +116,7 @@ img {
 
 /* 常に画面左上に固定して、絶対にクリックできるように最前面（2000）にする */
 .open-btn {
+  display: none;
   position: fixed;
   top: 15px;
   left: 15px;
@@ -126,6 +127,11 @@ img {
   font-size: 1.2rem;
   cursor: pointer;
   padding: 5px 10px;
+}
+
+/* サイドバーが閉じた時（bodyにsidebar-closedクラスがついた時）だけ表示する */
+body.sidebar-closed .open-btn {
+  display: block;
 }
 
 /* メインコンテンツの位置調整 */
