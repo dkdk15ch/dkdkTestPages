@@ -6,87 +6,78 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- コメント -->
-    <h1>GitHub Pages テスト成功！</h1>
+
+    <!-- サイドバー（目次） -->
+    <nav id="sidebar" class="sidebar">
+      <div class="sidebar-header">
         <h2>目次</h2>
-        <p>※リンクとして使用できます。</p>
-        <ul>    
-            <li><a href="自己紹介">自己紹介</a></li>
-            <li><a href="#スキル">言語スキル</a></li>
-            <li><a href="#メイン">メインの説明</a></li>
-            <li><a href="#ダウンロード">実行ファイルダウンロード</li>
-            <li><a href="#ソースコード">ソースコード(GitHub)</li>
-            <li><a href="#プログラミング学習歴">プログラミング歴</li>
-            <li><a href="#最近のブーム">最近のブーム</a> </li>
-            <li><a href="#好きな物">好きな物</a> </li>
-            <li><a href="#ストレス発散">ストレス発散</a> </li>
+        <!-- 閉じるボタン -->
+        <button id="toggle-btn" class="toggle-btn" aria-label="目次を開閉">☰</button>
+      </div>
+      <p>※リンクとして使用できます。</p>
+      <ul>
+        <li><a href="#自己紹介">自己紹介</a></li>
+        <li><a href="#スキル">言語スキル</a></li>
+        <li><a href="#メイン">メインの説明</a></li>
+        <li><a href="#ダウンロード">実行ファイルダウンロード</a></li>
+        <li><a href="#ソースコード">ソースコード(GitHub)</a></li>
+        <li><a href="#プログラミング学習歴">プログラミング歴</a></li>
+        <li><a href="#最近のブーム">最近のブーム</a></li>
+        <li><a href="#好きな物">好きな物</a></li>
+        <li><a href="#ストレス発散">ストレス発散</a></li>
+      </ul>
+    </nav>
+
+    <!-- サイドバーが閉じている時に表示する「開くボタン」 -->
+    <button id="open-btn" class="open-btn" aria-label="目次を開く">☰</button>
+
+    <!-- メインコンテンツ部分を囲む -->
+    <div id="main-content">
+        <!-- コメント -->
+        <h1>GitHub Pages テスト成功！</h1>
+
+        <br>
+        <h2 id="自己紹介">自己紹介</h2>
+        <p>日本生まれ日本育ち、好きな食べ物は硬めのお米、嫌いな食べ物は柔らかい米。</p>
+
+        <br>
+        <h2 id="スキル">スキル</h2>
+        <ul>
+            <li>C言語 &emsp; 1年</li>
+            <li>C#言語 &emsp; 2か月</li>
+            <li>C++言語 &emsp; 1年10か月</li>
+            <li>UnrealEngine &emsp; 1年</li>
+            <li>Unity &emsp; 2か月</li>
+            <li>DirectX12 &emsp; 1年</li>
         </ul>
-    <br>    
 
-    <h2 id="自己紹介">自己紹介</h2>
-    <p>日本生まれ日本育ち、好きな食べ物は硬めのお米、嫌いな食べ物は柔らかい米。</p>
-    <br>
+        <br>
+        <h2 id="メイン">メイン</h2>
+        <p>プレイ動画↓</p>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/glYUqlSb2sU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
 
-    <h2 id="スキル">スキル</h2>
-    <ul>
-        <li>C言語&emsp;1年</li>
-        <li>C#言語&emsp;2か月</li>
-        <li>C++言語&emsp;1年10か月</li>
-        <li>UnrealEngine&emsp;1年</li>
-        <li>Unity&emsp;2か月</li>
-        <li>DirectX12&emsp;1年</li>
-    </ul>
-    <br>
-
-    <h2 id="メイン">メイン</h2>
-    <p>プレイ動画↓</p>
-   <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/glYUqlSb2sU" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; 
-            autoplay; 
-            clipboard-write; 
-            encrypted-media; 
-            gyroscope;
-            picture-in-picture; 
-            web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen>
-        </iframe>
+        <br>
+        <h3 id="ソースコード">GitHubはこちら↓</h3>
     </div>
-    <br>
 
-    <h3 id="ソースコード">GitHubはこちら↓</h3>
-    <p>hogehoge</p>
-    <br>
-    
-    <h3 id="ダウンロード">実行ファイルのダウンロードはこちら↓</h4>
-    <p>※直接ダウンロードできます。</p>
-    <a href="https://github.com/dkdk15ch/TestRelase/releases/download/v0.0.1/SQUASH_BREAKER_1016.zip" download onclick="return confirm('ゲームデータをダウンロードしますか？（ファイルサイズ: 約116MB）');">
-    ダウンロード
-    </a>     
-    <br>
+    <!-- JavaScript -->
+    <script>
+      const sidebar = document.getElementById('sidebar');
+      const toggleBtn = document.getElementById('toggle-btn');
+      const openBtn = document.getElementById('open-btn');
 
-    <h3 id="プログラミング歴">プログラミング学習歴</h3>
-    <!-- 新しい順に書く。メインは書いてるので、割愛 -->
-    <p>hogehoge</p>
-    <br>
-    
-    <h2 id="最近のブーム">最近のブーム</h2>
-    <p>最近ハマっていることは、睡眠です。</p>
-    <p>柳沢正志さんの本を、図書館で予約とリクエストしました。</p>    
-    <p>予約した方は、順番待ちが多くて読むのは先になりそうです。</p>
-    <br>
+      toggleBtn.addEventListener('click', () => {
+        sidebar.classList.add('collapsed');
+        document.body.classList.add('sidebar-closed');
+      });
 
-    <h2 id="好きな物">好きな物</h2>
-    <p>自宅では、兎を飼っていいます。</p>
-    <p>昔飼っていた兎よりも、よく懐いてくれます。</p>
-    <img src="Images/15ch.jpg" alt="うさぎ">
+      openBtn.addEventListener('click', () => {
+        sidebar.classList.remove('collapsed');
+        document.body.classList.remove('sidebar-closed');
+      });
+    </script>
 
-    <h2 id="ストレス発散">ストレス発散</h2>
-    <p>早寝早起きして、朝の散歩。日の出まえ30分前から、30分ぐらい</p>
-    <p>遠くを見ながら歩くと眼精疲労も解消できるのでお勧めです。</p>
-    
 </body>
 </html>
