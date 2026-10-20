@@ -11,7 +11,7 @@
     <nav id="sidebar" class="sidebar">
       <div class="sidebar-header">
         <h2>目次</h2>
-        <!-- 共通のトグルボタン -->
+        <!-- 閉じる用のボタン（内部用としてそのまま配置） -->
         <button id="toggle-btn" class="toggle-btn" aria-label="目次を開閉">☰</button>
       </div>
       <p>※リンクとして使用できます。</p>
@@ -30,6 +30,7 @@
 
     <!-- メインコンテンツ部分を囲む -->
     <div id="main-content">
+        <!-- コメント -->
         <h1>GitHub Pages テスト成功！</h1>
 
         <br>
@@ -58,14 +59,14 @@
         <h3 id="ソースコード">GitHubはこちら↓</h3>
     </div>
 
-    <!-- JavaScript：押すたびに開閉を切り替える（トグル） -->
+    <!-- JavaScript：1つのボタンで開閉をトグル切り替え -->
     <script>
       const sidebar = document.getElementById('sidebar');
       const toggleBtn = document.getElementById('toggle-btn');
 
       toggleBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('collapsed');
-        document.body.classList.toggle('sidebar-closed');
+        sidebar.classList.toggle('open');
+        document.body.classList.toggle('sidebar-open');
       });
     </script>
 
