@@ -19,10 +19,10 @@
       <ul>
         <li><a href="#自己紹介">自己紹介</a></li>
         <li><a href="#スキル">言語スキル</a></li>
-        <li><a href="#メイン">メインの説明</a></li>
+        <li><a href="#メイン">メイン成果物</a></li>
         <li><a href="#ダウンロード">実行ファイルダウンロード</a></li>
         <li><a href="#ソースコード">ソースコード(GitHub)</a></li>
-        <li><a href="#プログラミング学習歴">プログラミング歴</a></li>
+        <!-- <li><a href="#プログラミング学習歴">プログラミング歴</a></li> -->
         <li><a href="#最近のブーム">最近のブーム</a></li>
         <li><a href="#好きな物">好きな物</a></li>
         <li><a href="#ストレス発散">ストレス発散</a></li>
@@ -58,15 +58,28 @@
           <li><span class="skill-name">DirectX12</span>1年</li>
         </ul>
 
+        <!-- <h3 id="プログラミング歴">プログラミング学習歴</h3> -->
+        <!-- 新しい順に書く。メインは書いてるので、割愛 -->
+        <!-- <div class="learning-history-images">
+          <img src="Images/LearningHistory1.png" alt="プログラミング学習遍歴">
+          <img src="Images/LeaarningHistory2.png" alt="プログラミング学習遍歴">
+        </div> -->
+        <div class="learning-history-comparison">
+          <img src="Images/LearningHistory1.png" alt="プログラミング学習遍歴の比較用表示">
+          <img src="Images/LeaarningHistory2.png" alt="プログラミング学習遍歴の比較用表示">
+        </div>
+        <p><a href="learning-history.html">プログラミング学習歴の詳細を見る</a></p>
         <br>
-        <h2 id="メイン">メイン</h2>
+
+        <br>
+        <h2 id="メイン">メイン成果物</h2>
         <p>プレイ動画↓</p>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/glYUqlSb2sU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
         <h3>概要</h3>
-        <h4>SQUASH_BREAKER</h4>
+        <h4>タイトル：　SQUASH_BREAKER</h4>
         <p>ストラックアウトで狙い通り当てる気持ちよさと、壁を壊していく気持ちよさを体験してもらうために、スカッシュのような操作感で、ブロック崩しを行うゲームを作成しました。</p>
 
         <h4>制作目的</h4>
@@ -96,47 +109,60 @@
 
           <h4>DirectX</h4>
           <ul>
-            <li>リソース、デバイス作成</li>
-            <li>パイプラインの作成から描画</li>
+            <li>リソース、デバイス、パイプラインの作成から描画</li>
             <li>PSOの切り替えが少なくなるように、PSO毎で管理して描画</li>
             <li>インスタンシング描画</li>
-            <li>アニメーションの実装（fbx形式）</li>
-            <li>ボーンの姿勢計算はCPU、スキニング計算のみGPU</li>
+            <li>スキニングモデル描画・アニメーション</li>
+              <ul>
+                <li>ボーンの姿勢計算はCPU、スキニング計算のみGPU</li>
+              </ul>
             <li>蓋絵、背景、文字描画はDirectXTKのスプライトバッチ、スプライトフォンを作成</li>
           </ul>
 
           <h4>Game</h4>
           <ul>
             <li>コンポーネント指向</li>
-            <li>変更しやすいように、静的なパラメータはExcelで変更、JSONで読み込み</li>
-            <li>アセット周り
+            <li>アセット管理
               <ul>
-                <li>モデル：Assimp、fbx・obj形式</li>
-                <li>音声：DirectXTK/Audio、Wav</li>
-                <li>テクスチャ：DirectXTK/DDSTextureLoader、dds形式のみ</li>
+                <li>モデル：Assimpでロード、fbx・obj形式</li>
+                <li>音声：DirectXTK/Audioでロード、Wav形式</li>
+                <li>テクスチャ：DirectXTK/DDSTextureLoaderでロード、dds形式</li>
                 <li>ロード後はマネージャクラスで管理</li>
-                <li>ファイル直接とパッケージ化したデータからのロード方法</li>
-                <li>非同期は未実装</li>
+                <li>ロード方法は、直接ファイルからとパッケージ化したデータからの二つ実装</li>
                 <li>パッケージは単純なファイル結合（暗号化なし、圧縮なし）</li>
               </ul>
             </li>
-            <li>当たり判定はAABB、Sphere、Ray</li>
-            <li>タグありの総当たり（レイヤーはExcelにてチェックボックスで設定）</li>
-            <li>物理：ボールの挙動自前、キャラクターの動きなど</li>
-            <li>操作：入力はDirect</li>
-            <li>可読性：ストラテジーやステート、ヒット応答など</li>
+            <li>当たり判定
+              <ul>
+                <li>AABB</li>
+                <li>Sphere</li>
+                <li>Ray</li>
+                <li>タグありの総当たり（レイヤーはExcelにてチェックボックスで設定）</li>
+              </ul>
+            </li>
+            <li>物理
+              <ul>
+                <li>ボールの挙動</li>
+                <li>キャラクターの動き</li>
+              </ul>
+            </li>
+            <li>操作
+              <ul>
+                <li>入力はDirectXTK</li>
+                <li>コントローラ、キーボード</li>
+                <li>ステートマシーンで状態管理</li>
+              </ul>
+            </li>
           </ul>
-
+<!--
           <h4>出来なかったこと</h4>
           <ul>
-            <li>描画周り、基本的なランバートのみ</li>
+            <li>基本的なランバート以外の描画</li>
             <li>影</li>
             <li>パーティクル</li>
             <li>モーフ</li>
-            <li>複数メッシュ未対応</li>
-            <li>StructureBuffer</li>
           </ul>
-
+        -->
           <h4>参考文献</h4>
           <ul>
             <li>DirectX3D 実践ガイド｜著）Pocol</li>
@@ -163,14 +189,6 @@
         <a href="https://github.com/dkdk15ch/TestRelase/releases/download/v0.0.1/SQUASH_BREAKER_1016.zip" download onclick="return confirm('ゲームデータをダウンロードしますか？（ファイルサイズ: 約116MB）');">
         ダウンロード
         </a>     
-        <br>
-
-        <h3 id="プログラミング歴">プログラミング学習歴</h3>
-        <!-- 新しい順に書く。メインは書いてるので、割愛 -->
-        <div class="learning-history-images">
-          <img src="Images/LearningHistory1.png" alt="プログラミング学習遍歴">
-          <img src="Images/LeaarningHistory2.png" alt="プログラミング学習遍歴">
-        </div>
         <br>
         
         <h2 id="最近のブーム">最近のブーム</h2>

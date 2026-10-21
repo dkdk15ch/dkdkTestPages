@@ -67,14 +67,15 @@ img {
 }
 
 .play-guide {
-    height: 80%;
-    width: 80%;
+    height: auto;
+    max-width: 900px;
+    width: 100%;
 }
 
 .video-container {
     position: relative;
     width: 100%;
-    max-width: 720px;
+    max-width: 900px;
     aspect-ratio: 16 / 9;
     margin-top: 10px;
 }
@@ -129,6 +130,19 @@ img {
     height: auto;
     max-width: 100%;
     width: min(100%, 900px);
+}
+
+.learning-history-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 900px;
+    margin-top: 1rem;
+}
+
+.learning-history-comparison img {
+    height: auto;
+    width: 100%;
 }
 
 /* --- サイドバー関連のスタイル --- */
@@ -211,5 +225,9 @@ body.sidebar-open #main-content {
 
     .sidebar {
         width: 85vw;
+    }
+
+    .learning-history-comparison {
+        grid-template-columns: 1fr;
     }
 }
