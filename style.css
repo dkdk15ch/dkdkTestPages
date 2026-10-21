@@ -2,6 +2,9 @@ body {
     position: relative;
     min-height: 100vh;
     margin: 0;
+    color: #333;
+    font-family: sans-serif;
+    line-height: 1.7;
 }
 
 body::before {
@@ -22,30 +25,34 @@ body::before {
 
 h1 {
     color: #1e1e1e;
-    font-size: 3.0rem;
+    font-size: 2.5rem;
 }
 
 h2 {
     color: #3d3d3d;
-    font-size: 2rem;
+    margin-top: 2.5rem;
+    font-size: 1.8rem;
 }
 
 h3 {
     color: #151515;
-    font-size: 20px;
+    margin-top: 1.8rem;
+    font-size: 1.3rem;
 }
 
 p {
     color: #494949;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 ul {
-    font-size: 2.0rem;
+    padding-left: 1.8rem;
+    font-size: 1rem;
 }
 
 li {
-    font-size: 2.0rem;
+    margin-bottom: 0.35rem;
+    font-size: 1rem;
 }
 
 .skill-list li {
@@ -57,6 +64,11 @@ li {
 img {
     height: 40%;
     width: 40%;
+}
+
+.play-guide {
+    height: 80%;
+    width: 80%;
 }
 
 .video-container {
@@ -74,6 +86,49 @@ img {
     width: 100%;
     height: 100%;
     border: none;
+}
+
+.project-details h4 {
+    color: #252525;
+    margin-top: 1.5rem;
+    margin-bottom: 0.4rem;
+    font-size: 1.15rem;
+}
+
+.project-details ul {
+    margin-top: 0.4rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.project-details li {
+    font-size: 1rem;
+}
+
+.project-details > ul > li > ul {
+    margin-top: 0.35rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-details {
+    max-width: 900px;
+}
+
+.video-container {
+    margin-bottom: 1.5rem;
+}
+
+.learning-history-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.learning-history-images img {
+    height: auto;
+    max-width: 100%;
+    width: min(100%, 900px);
 }
 
 /* --- サイドバー関連のスタイル --- */
@@ -131,10 +186,30 @@ img {
     /* デフォルト（非展開時）は左側の余白を狭くしておく */
     margin-left: 20px;
     padding: 20px;
+    max-width: 1100px;
     transition: margin-left 0.3s ease;
 }
 
 /* サイドバーが開いた時（openクラスがついた時）にメインコンテンツを右に押す */
 body.sidebar-open #main-content {
     margin-left: calc(30vw + 20px);
+}
+
+@media (max-width: 700px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #main-content {
+        margin-left: 0;
+        padding: 16px;
+    }
+
+    body.sidebar-open #main-content {
+        margin-left: 0;
+    }
+
+    .sidebar {
+        width: 85vw;
+    }
 }

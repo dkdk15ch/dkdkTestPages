@@ -65,6 +65,96 @@
             <iframe src="https://www.youtube.com/embed/glYUqlSb2sU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
+        <h3>概要</h3>
+        <h4>SQUASH_BREAKER</h4>
+        <p>ストラックアウトで狙い通り当てる気持ちよさと、壁を壊していく気持ちよさを体験してもらうために、スカッシュのような操作感で、ブロック崩しを行うゲームを作成しました。</p>
+
+        <h4>制作目的</h4>
+        <p>グラフィック処理の根本やGPUを用いた描画処理を理解するため、ローレベルAPIであるDirectX 12を採用しました。描画パイプラインを一から作成し、技術構造への理解を深めることを目的に制作しました。</p>
+
+        <ul class="project-info">
+          <li>制作期間：6か月</li>
+          <li>制作人数：1人</li>
+        </ul>
+
+        <h4>操作方法</h4>
+        <p>コントローラ推奨</p>
+        <img class="play-guide" src="Images/PlayGuid.jpg" alt="操作方法">
+        <p>詳細は、ビルドデータ同梱のPlayGuidまたは、ゲーム内PlayGuidで確認できます。</p>
+
+        <h4>動作確認環境</h4>
+        <ul class="project-info">
+          <li>OS：Windows 10 / 11（64bit）</li>
+          <li>CPU：13th Gen Intel Core i7-13700H（2.40 GHz）</li>
+          <li>メモリ：32 GB</li>
+          <li>GPU：NVIDIA GeForce RTX 4060 Laptop GPU（8 GB）</li>
+        </ul>
+        <p>※上記環境で動作確認を行っています。最低動作環境および推奨スペックは未検証です。</p>
+
+        <section class="project-details" aria-labelledby="project-details-title">
+          <h3 id="project-details-title">実装内容</h3>
+
+          <h4>DirectX</h4>
+          <ul>
+            <li>リソース、デバイス作成</li>
+            <li>パイプラインの作成から描画</li>
+            <li>PSOの切り替えが少なくなるように、PSO毎で管理して描画</li>
+            <li>インスタンシング描画</li>
+            <li>アニメーションの実装（fbx形式）</li>
+            <li>ボーンの姿勢計算はCPU、スキニング計算のみGPU</li>
+            <li>蓋絵、背景、文字描画はDirectXTKのスプライトバッチ、スプライトフォンを作成</li>
+          </ul>
+
+          <h4>Game</h4>
+          <ul>
+            <li>コンポーネント指向</li>
+            <li>変更しやすいように、静的なパラメータはExcelで変更、JSONで読み込み</li>
+            <li>アセット周り
+              <ul>
+                <li>モデル：Assimp、fbx・obj形式</li>
+                <li>音声：DirectXTK/Audio、Wav</li>
+                <li>テクスチャ：DirectXTK/DDSTextureLoader、dds形式のみ</li>
+                <li>ロード後はマネージャクラスで管理</li>
+                <li>ファイル直接とパッケージ化したデータからのロード方法</li>
+                <li>非同期は未実装</li>
+                <li>パッケージは単純なファイル結合（暗号化なし、圧縮なし）</li>
+              </ul>
+            </li>
+            <li>当たり判定はAABB、Sphere、Ray</li>
+            <li>タグありの総当たり（レイヤーはExcelにてチェックボックスで設定）</li>
+            <li>物理：ボールの挙動自前、キャラクターの動きなど</li>
+            <li>操作：入力はDirect</li>
+            <li>可読性：ストラテジーやステート、ヒット応答など</li>
+          </ul>
+
+          <h4>出来なかったこと</h4>
+          <ul>
+            <li>描画周り、基本的なランバートのみ</li>
+            <li>影</li>
+            <li>パーティクル</li>
+            <li>モーフ</li>
+            <li>複数メッシュ未対応</li>
+            <li>StructureBuffer</li>
+          </ul>
+
+          <h4>参考文献</h4>
+          <ul>
+            <li>DirectX3D 実践ガイド｜著）Pocol</li>
+            <li>DirectX12 Programing Vol.2,3,4｜著）山田 英伸</li>
+            <li>ゲームプログラマになる前に覚えておきたい技術｜著）平山 尚</li>
+            <li>ゲームエンジンアーキテクスチャ｜著）ジェイソン・グレゴリー</li>
+          </ul>
+        </section>
+
+        <section class="project-details" aria-labelledby="improvements-title">
+          <h3 id="improvements-title">工夫したこと</h3>
+          <ul>
+            <li>可読性や変更しやすさを意識して作成しました。</li>
+            <li>Ballクラスでは、衝突応答をストラテジーとして分離しました。通常のボールと敵のボールでは異なるファクトリーを設定し、衝突相手に応じた処理を切り替えています。これにより、Ballクラスを種類ごとに派生させず、ボール本体と衝突時の振る舞いを分離しています。</li>
+            <li>静的なパラメータをParamクラスに分離し、ハードコーディングを減らしてExcelから変更できるようにしました。</li>
+          </ul>
+        </section>
+
         <br>
         <h3 id="ソースコード">GitHubはこちら↓</h3>
 
@@ -77,7 +167,10 @@
 
         <h3 id="プログラミング歴">プログラミング学習歴</h3>
         <!-- 新しい順に書く。メインは書いてるので、割愛 -->
-        <p>hogehoge</p>
+        <div class="learning-history-images">
+          <img src="Images/LearningHistory1.png" alt="プログラミング学習遍歴">
+          <img src="Images/LeaarningHistory2.png" alt="プログラミング学習遍歴">
+        </div>
         <br>
         
         <h2 id="最近のブーム">最近のブーム</h2>
